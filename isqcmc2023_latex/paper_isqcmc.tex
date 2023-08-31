@@ -27,7 +27,7 @@
 \maketitle
 
 \begin{abstract}
-In this paper we introduce a novel approach for sonifying a superposition of quantum states, by using rhythmic density (e.g. faster rhythms) to represent probability amplitudes. Typical sonifications of quantum superpositions assign a different musical pitch to each state and correlate the probability of each state to the respective pitch’s loudness. However, this has problems of quantifiability, which our novel approach rectifies. With our sonification methods, we hope to help listeners obtain an intuitive understanding of the probabilitistic nature of quantum systems. Herein we present an overview of our approach and a discussion of how it compares to prior work and other quantum sonification methods. We discuss the advantages and disavantages of our work and conclude by outlining areas for future development and research.
+In this paper we propose to sonify a superposition of quantum states, by using rhythmic density (e.g. faster rhythms) to represent probability amplitudes. Typical sonifications of quantum superpositions assign a different musical pitch to each state and correlate the probability of each state to the respective pitch’s loudness. However, this has problems of quantifiability, which we hope to rectify with our approach. With our sonification methods, we hope to help listeners obtain an intuitive understanding of the probabilitistic nature of quantum systems. Herein we present an overview of our approach and a discussion of how it compares to prior work and other quantum sonification methods. We discuss the advantages and disavantages of our work and conclude by outlining areas for future development and research.
 \end{abstract}
 
 \section{Introduction}
@@ -40,7 +40,7 @@ Arguably, the primary difference between classical information and quantum infor
 
 \subsection{Rhythmic Density and Probability}
 
-Our approach to sonifying a quantum state is as follows: first, calculate the probability of measurement for each of the basis states, then use these probabilities as input to one of several rhythmic density based sonification algorithms. These sonification algorithms map a higher probability to higher rhythmic density with faster rhythms and more notes, while lower probabilities correlate to lower rhythmic density with slower rhythms and less notes. As we outline later in the paper, rhythmic density is highly quantifiable for the human ear compared to other potential “sonification dimensions,” and has other advantages as well. While our approach is infeasible to run on quantum hardware (because a useful approximation of the probabilities of a quantum state on hardware requires many invocations of the same program), it is still very useful with smaller simulated quantum systems as a pedagogical tool, analytical too, and creative tool for musicians.
+Our approach to sonifying a quantum state is as follows: first, calculate the probability of measurement for each of the basis states, then use these probabilities as input to one of several rhythmic density based sonification algorithms. These sonification algorithms map a higher probability to higher rhythmic density with faster rhythms and more notes, while lower probabilities correlate to lower rhythmic density with slower rhythms and less notes. As we outline later in the paper, rhythmic density is highly quantifiable for the human ear compared to other potential "sonification dimensions,". While our approach is infeasible to run on quantum hardware (because a useful approximation of the probabilities of a quantum state on hardware requires many invocations of the same program), it is still a useful sonification method for smaller simulated quantum systems. Further development of this method may have the potential to yield pedagogical, analytical, and creative tools for scientists and musicians.
 
 \section{Prior Work}
 
@@ -64,9 +64,9 @@ Our work counters these issues by generalizing to any number of quantum states, 
 
 Rhythmic density here refers to how many notes occur within a uniform span of time. For example, a span of a second with 5 notes has greater rhythmic density than a span of a second with a single note. Note that this definition holds even if the note durations within the span are not the same. To differentiate between different basis states, each state is assigned a different pitch and/or timbre.
 
-To achieve a more quantitative representation of the probabilities of states, we correlate the probabilities of each quantum state with higher rhythmic density for the pitch/timbre assigned to each state. According to our paradigm, a pitch corresponding to a state with a higher probability of being measured will produce more attacks in a unit of time than a pitch corresponding to a state with a lower probability. In other words, measurement probability is positively correlated with rhythmic density.
+To achieve a more perceptively quantitative auditory representation of the probabilities of states, we correlate the probabilities of each quantum state with higher rhythmic density for the pitch/timbre assigned to each state. According to our paradigm, a pitch corresponding to a state with a higher probability of being measured will produce more attacks in a unit of time than a pitch corresponding to a state with a lower probability. In other words, measurement probability is positively correlated with rhythmic density.
 
-For example, consider a single qubit in an equal superposition state, $|+\rangle = \sqrt{\frac{1}{2}}|0\rangle + \sqrt{\frac{1}{2}}|1\rangle$. Here, the measurement probabilities of $|0\rangle$ and $|1\rangle$ are both $\frac{1}{2}$, so they are the same. Because both measurement probabilities are the same, both states should have the same rhythmic density. With our sonification method, each state is assigned to an arbitrary pitch (say C4 and G4 for |0> and |1>, respectively), and the rhythms corresponding to both states would be the same (Figure \ref{fig:Figure1a}).
+For example, consider a single qubit in an equal superposition state, $|+\rangle = \sqrt{\frac{1}{2}}|0\rangle + \sqrt{\frac{1}{2}}|1\rangle$. Here, the measurement probabilities of $|0\rangle$ and $|1\rangle$ are both $\frac{1}{2}$, so they are the same. Because both measurement probabilities are the same, both states should have the same rhythmic density. With our sonification method, each state is assigned to an arbitrary pitch (say C4 and G4 for $|0\rangle$ and $|1\rangle$, respectively), and the rhythms corresponding to both states would be the same (Figure \ref{fig:Figure1a}).
 
 On the other hand, consider the state $\sqrt{\frac{1}{4}}|0\rangle + \sqrt{\frac{3}{4}}|1\rangle$. Here, the probability of measurement for the $|0\rangle$ state is $\frac{1}{4}$, and the probability of measurement for the $|1\rangle$ state is $\frac{3}{4}$. So the $|1\rangle$ state is three times as likely as the $|0\rangle$ state to be measured, and thus should have three times the rhythmic density.  As such, the ratio of the rhythms corresponding to the $|0\rangle$ and $|1\rangle$ states would be $1:3$ (Figure \ref{fig:Figure1b}).
 
@@ -106,22 +106,8 @@ Even without having had the pleasure of taking an ear-training course, it is lik
 
 \begin{figure}[h]
 
-        \begin{subfigure}{0.45\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{fig/Figure 2a.png} % first figure itself
-        \end{subfigure}
-
-        \hfill
-
-        \begin{subfigure}{0.45\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{fig/Figure 2b.png} % second figure itself
-        \end{subfigure}
-
-        \begin{subfigure}{0.45\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{fig/Figure 2c.png}
-        \end{subfigure}
+        \centering
+        \includegraphics[width=.45\textwidth]{fig/Figure 2.png} % first figure itself
 
         \caption{Score notations for audio excerpts 4, 5, and 6. From this it is clear that the probability ratios of $|1\rangle$ to $|0\rangle$ in each excerpt are $1:2$, $1:1$, and $3:1$, for excerpts 4, 5, and 6, respectively.}
         \label{fig:Figure2}
@@ -191,17 +177,17 @@ algorithmic composition based on probabilities, as users can create motives and 
 
 To sonify a quantum circuit, we first need to extract parameters from it which we then can translate into sound. Due to the nature of quantum physics, it is not possible to extract information from a quantum system without disturbing it; furthermore, because a quantum system collapses upon measurement, some information is lost. For this reason, we chose to use a simulated quantum system through (Qiskit\cite{qiskit} and MicroQiskit\cite{microqiskit} though Max\cite{maxmsp}).While it technically is possible to adapt our method to run on quantum hardware, it would be computationally expensive, especially if one wants to hear how the state changes as it progresses through state transformations. As mentioned, it would require a large number of shots (e.g. quantum program invocations) to find a good approximation of the quantum state at a single stage\cite{qiskitalgos}. If one wanted to sonify the state as it progresses through state transformations, it would be necessary to perform the same number of shots at each stage in the computation, which would multiply the number of necessary shots. Furthermore, if the program being sonified itself requires a measurement operator, postselection would be necessary.
 
-By using a simulated quantum computer, it becomes possible to accurately extract the statevector at each step in a quantum computation without disturbing the system\cite{qiskitstatevectordocs}. This gives us the probability amplitude for each quantum basis state. From this, we can calculate the probability of the measurement of each basis state by multiplying each probability amplitude by its complex conjugate. This gives us a single real number for each state, which we can feed into our sonification algorithms. While we do lose information about the phase, we can consider this as a separate parameter for each state. The sonification algorithms then generate note data, which then can be processed into sound data which is the final sonification.
+By using a simulated quantum computer, it becomes possible to accurately extract the statevector at each step in a quantum computation without disturbing the system. This gives us the probability amplitude for each quantum basis state. From this, we can calculate the probability of the measurement of each basis state by multiplying each probability amplitude by its complex conjugate. This gives us a single real number for each state, which we can feed into our sonification algorithms. While we do lose information about the phase, we can consider this as a separate parameter for each state. The sonification algorithms then generate note data, which then can be processed into sound data which is the final sonification.
 
 \subsection{Python Implementation}
 
-One implementation of this technique uses Python\cite{pythonlang} and the Qiskit\cite{qiskit} framework for working with quantum computers. We define a function, get\_probabilities\_at\_steps, which takes a user-defined Qiskit QuantumCircuit object and returns a list which has the statevector of the quantum system after each gate in the quantum circuit defined by the QuantumCircuit object. The implementation of this function simply iterates through the instructions from the user-provided QuantumCircuit and applies them to a fresh QuantumCircuit, using a Qiskit builtin to get the statevector of the fresh QuantumCircuit at each step. Another Qiskit builtin is then used to calculate the measurement probabilities for each basis state for each statevector.
+One implementation of this technique uses Python and the Qiskit\cite{qiskit} framework for working with quantum computers. We define a function, get\_probabilities\_at\_steps, which takes a user-defined Qiskit QuantumCircuit object and returns a list which has the statevector of the quantum system after each gate in the quantum circuit defined by the QuantumCircuit object. The implementation of this function simply iterates through the instructions from the user-provided QuantumCircuit and applies them to a fresh QuantumCircuit, using a Qiskit builtin to get the statevector of the fresh QuantumCircuit at each step. Another Qiskit builtin is then used to calculate the measurement probabilities for each basis state for each statevector.
 
 The sonification approach used by our Python implementation transforms each probability into a rhythm by figuring out the ratio of each probability to the lowest probability, and giving each state a rhythm based on this ratio. This results in a polyrhythm between the notes, with ratios corresponding to the probabilities. 
 
-The Python implementation is freely available via Google Colab\cite{googlecolab}. To use it, simply run the code blocks in order. This installs the necessary dependencies, defines helper functions, generates the circuit, and outputs a MIDI\cite{midi1spec} file for the sonified circuit! The MIDI data can then be processed into audio data by a digital audio workstation, such as Logic Pro\cite{logicpro} or Bitwig Studio\cite{bitwigstudio}. The circuit can be tweaked freely, using standard Qiskit conventions, in the 3rd code block. To download the MIDI file updated for the tweaked circuit, simply re-run the 4th code block.
+The Python implementation is freely available via Google Colab\cite{googlecolab}. To use it, simply run the code blocks in order. This installs the necessary dependencies, defines helper functions, generates the circuit, and outputs a MIDI file for the sonified circuit! The MIDI data can then be processed into audio data by a digital audio workstation, such as Logic Pro or Bitwig Studio. The circuit can be tweaked freely, using standard Qiskit conventions, in the 3rd code block. To download the MIDI file updated for the tweaked circuit, simply re-run the 4th code block.
 
-The implementation can be accessed at the following link: \url{https://colab.research.google.com/drive/1Es9EgHPlMFIzgL5aJfddSCUdq9vngosS?usp=sharing} .
+The Python implementation can be accessed on Google Colab\footnote{\url{https://colab.research.google.com/drive/1Es9EgHPlMFIzgL5aJfddSCUdq9vngosS?usp=sharing}}.
 
 \subsection{Max Implementation}
 
@@ -209,11 +195,13 @@ The Max implementation is built atop the QAC Toolkit\cite{Hamido_2022} package, 
 
 To use the Max implementation, download and open the Max file. Define messages which feed into the och.microqiskit object to perform the desired gates and operations on the quantum circuit. When ready to run, lock the circuit and press the box corresponding to each message to apply its operation to the quantum circuit. The sonification should update accordingly in real-time with each message sent!
 
+The Max implementation can be downloaded on GitHub\footnote{\url{https://github.com/sporkl/superposition-rhythms/tree/main/Max_Implementation}}.
+
 \section{Limitations and Future Work}
 
 \subsection{Evaluating Our Approach}
 
-Our approach relies on the idea that rhythm-based sonification methods allow a listener to more easily determine the quantitative relationships between probabilities of states in a quantum superposition. However, this method would need to be evaluated alongside the traditional probability-loudness method with focus groups (ideally of musical and non-musical backgrounds), in order to compare the two approaches and determine if ours is actually more effective.  
+Our approach relies on the idea that rhythm-based sonification methods allow a listener to more easily determine the quantitative relationships between probabilities of states in a quantum superposition. However, this method would need to be evaluated alongside the traditional probability-loudness method with focus groups (ideally of musical and non-musical backgrounds), in order to compare the two approaches and determine if ours is actually more effective. This would especially be necessary as a foundation for developing our method into a pedagogical tool for introductory settings, which we see as a potential avenue for future work.
 
 \subsection{Simulated Quantum Systems}
 
@@ -221,7 +209,7 @@ As mentioned, one intrinsic limitation of our current method is that it works on
 
 \subsection{User Interface}
 
-A further limitation of our current implementations is the user interfaces. Given the pedagogical bent of our method, ease-of-use is crucial for lowering the barrier of entry for a wider audience\cite{faghih2014}. Both Python and Max have sophisticated user interface toolkits, and incorporating these into our current algorithms would be a valuable avenue for future development.
+A further limitation of our current implementations is the user interfaces. Given the potential utility of our method as a pedagogical tool, ease-of-use is crucial for lowering the barrier of entry for a wider audience\cite{faghih2014}. Both Python and Max have sophisticated user interface toolkits, and incorporating these into our current algorithms would be a valuable avenue for future development.
 
 \subsection{Entanglement}
 
@@ -235,9 +223,9 @@ Besides entanglement, our system also does not account for phase. Phase is often
 
 The superposition sonification method we outline in this paper presents advantages over existing superposition sonification method that correlate probability with loudness. As such, it may provide a solid backbone for more advanced sonifications of quantum systems in the future, and help lead to a broader and more intuitive understanding of quantum superpositions.
 
-All audio excerpts can be accessed at the following Google Drive folder: \url{https://drive.google.com/file/d/1pWsGyKHENlIqA3gQ0BEH_1gWuMckoHDL} .
+All audio excerpts can be accessed from a Google Drive folder\footnote{\url{https://drive.google.com/drive/folders/1wJ_7vQ45czMzXxAOGuN8wSrFXqpatW_2?usp=sharing}}.
 
-The code for this paper can be accessed on GitHub: \url{https://github.com/sporkl/superposition-rhythms} .
+The code for this paper can be accessed on GitHub\footnote{\url{https://github.com/sporkl/superposition-rhythms}}.
 
 \subsection{Acknowledgements}
 
